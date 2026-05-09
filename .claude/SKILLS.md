@@ -7,6 +7,9 @@ Formato: fecha · archivos afectados · acción brevísima.
 
 ## 2026-05-09
 
+### [TEST] test_agents.py
+- **Agregado**: `test_agents.py` — script manual con `requests` para probar los 3 modos contra el server local.
+
 ### [API] Creative Routes
 - **Agregado**: `app/api/creative_routes.py` — `POST /api/v1/inspire` con routing por `creative_mode`, timeout 5s y mocks de fallback por modo.
 
