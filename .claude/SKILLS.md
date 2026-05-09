@@ -7,6 +7,9 @@ Formato: fecha · archivos afectados · acción brevísima.
 
 ## 2026-05-09
 
+### [INFRA] Creative Agents
+- **Agregado**: `app/infra/creative_agents.py` — 3 funciones async (`get_visual_palette`, `get_musical_mood`, `get_writer_quiz`) con Gemini `gemini-3.1-flash-lite` y `response_mime_type=application/json`.
+
 ### [CORE] Config + Requirements
 - **Agregado**: `app/core/config.py` — `Settings` con `GEMINI_API_KEY` via pydantic-settings + dotenv.
 - **Modificado**: `requirements.txt` — fastapi, uvicorn[standard], python-dotenv, google-generativeai, pydantic-settings.
