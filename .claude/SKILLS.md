@@ -7,6 +7,14 @@ Formato: fecha · archivos afectados · acción brevísima.
 
 ## 2026-05-09
 
+### [FIX] SDK migration + pydantic extra fields
+- **Modificado**: `app/infra/creative_agents.py` — migrado de `google.generativeai` (deprecado) a `google.genai` con `_client.aio.models.generate_content`.
+- **Modificado**: `app/core/config.py` — añadido `"extra": "ignore"` para tolerar campos extra en `.env`.
+- **Modificado**: `requirements.txt` — reemplazado `google-generativeai` por `google-genai`.
+
+### [APP] main.py
+- **Agregado**: `app/main.py` — FastAPI app con `include_router` de creative_routes.
+
 ### [TEST] test_agents.py
 - **Agregado**: `test_agents.py` — script manual con `requests` para probar los 3 modos contra el server local.
 
