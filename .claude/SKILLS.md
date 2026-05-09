@@ -7,6 +7,9 @@ Formato: fecha · archivos afectados · acción brevísima.
 
 ## 2026-05-09
 
+### [API] Creative Routes
+- **Agregado**: `app/api/creative_routes.py` — `POST /api/v1/inspire` con routing por `creative_mode`, timeout 5s y mocks de fallback por modo.
+
 ### [INFRA] Creative Agents
 - **Agregado**: `app/infra/creative_agents.py` — 3 funciones async (`get_visual_palette`, `get_musical_mood`, `get_writer_quiz`) con Gemini `gemini-3.1-flash-lite` y `response_mime_type=application/json`.
 
