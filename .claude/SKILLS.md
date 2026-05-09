@@ -7,6 +7,9 @@ Formato: fecha · archivos afectados · acción brevísima.
 
 ## 2026-05-09
 
+### [FIX] 429 quota fallback
+- **Modificado**: `app/api/creative_routes.py` — captura `ClientError` 429 de Gemini y cae al mock automáticamente (demo-safe).
+
 ### [FIX] SDK migration + pydantic extra fields
 - **Modificado**: `app/infra/creative_agents.py` — migrado de `google.generativeai` (deprecado) a `google.genai` con `_client.aio.models.generate_content`.
 - **Modificado**: `app/core/config.py` — añadido `"extra": "ignore"` para tolerar campos extra en `.env`.

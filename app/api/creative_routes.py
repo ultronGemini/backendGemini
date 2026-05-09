@@ -1,6 +1,7 @@
 import asyncio
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
+from google.genai import errors as genai_errors
 from app.infra.creative_agents import get_visual_palette, get_musical_mood, get_writer_quiz
 
 router = APIRouter(prefix="/api/v1")
@@ -67,3 +68,9 @@ async def inspire(body: InspireRequest):
         return {"source": "gemini", "mode": mode, "data": result}
     except asyncio.TimeoutError:
         return {"source": "mock", "mode": mode, "data": _MOCKS[mode]}
+    except genai_errors.ClientError as e:
+        if e.code == 429:
+            return {"source": "mock", "mode": mode, "data": _MOCKS[mode]}
+        raise HTTPException(status_code=500, detail=f"Gemini error: {e}")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"{type(e).__name__}: {e}")
